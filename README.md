@@ -54,13 +54,13 @@ Se configuraron las siguientes variables de entorno para configuraciones y datos
 
 ### En el backend
 
-* PORT: define el puerto de ejecución del backend (por defecto es 3000)
-* MOCK_API_URL: url base del servicio mock (sin incluir endpoint /mock/sync)
-* MOCK_API_TOKEN: token de acceso para el servicio mock (sin el "Bearer")
+* **PORT:** define el puerto de ejecución del backend (por defecto es 3000)
+* **MOCK_API_URL:** url base del servicio mock (sin incluir endpoint /mock/sync)
+* **MOCK_API_TOKEN:** token de acceso para el servicio mock (sin el "Bearer")
 
 ### En el frontend
 
-* VITE_API_URL: Ruta del backend (por defecto es http://localhost:3000)
+* **VITE_API_URL:** Ruta del backend (por defecto es http://localhost:3000)
 
 ## Uso de la aplicación
 
@@ -92,20 +92,12 @@ El esquema de la base de datos se inicializa automáticamente al arrancar el bac
 
 ## Decisiones técnicas
 
-* Se eligió SQLite para la base de datos por su simplicidad y facilidad de uso en entornos locales.
-* Se separó la lógica en capas para mantener claridad y escalabilidad básica.
-* Backend:
-  * config: Define la configuración inicial de la bd asi como la creación de la misma si no existe
-  * repositories: se encarga de las consultas directas a la base de datos
-  * services: servicio para ejecutar la sincronización del mock y guardado de datos
-  * controllers: conectan servicios y repositories con rutas
-  * routes: expone los endpoints para ser consumidos por el frontend
-  * utils: contiene un archivo encargado de transformar y limpiar los registros
-* Frontend:
-  * components: se crearon 2 tablas principales y un sidebar
-  * pages: se creo una unica página principal alternando entre ambas tablas
-  * services: contiene un archivo para consumir al backend
-  * se utilizó tailwind para los estilos css por su flexibilidad y facilidad de uso
+* **SQLite:** se eligió por su simplicidad y facilidad de uso en entornos locales,
+* **Separación en capas:** se dividió la lógica en capas (config, controllers, repositories, routes, services y utils) para mantener claridad y escalabilidad básica.
+* **Express:** se eligió por ser minimalista y suficiente para exponer un único endpoint de sincronización.
+* **React + Vite:** permite levantar el frontend rápidamente sin configuración compleja
+* **Tailwind CSS:** se eligió por su flexibilidad y facilidad de uso para estilos css
+* **Variables de entorno:** se utilizaron para separar configuración sensible (tokens, URLs, puertos) del código fuente.
 
 ## Transformación y limpieza de datos
 
