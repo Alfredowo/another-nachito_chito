@@ -70,6 +70,8 @@ Se configuraron las siguientes variables de entorno para configuraciones y datos
    * Registros almacenados
    * Bitácora de ejecuciones
 
+En caso de requerir pruebas sin datos previos, se puede borrar el archivo database/nachitobd.sqlite. Al reiniciar el backend, se creará automáticamente un nuevo archivo de base de datos con las tablas vacías.
+
 ## Flujo técnico de sincronización
 
 1. El usuario presiona el botón "Sincronizar" en la interfaz.
@@ -121,6 +123,7 @@ Esto permite mantener una estructura consistente en la base de datos.
 ## Supuestos tomados
 
 * Se consideró una separación entre servicios de tipo "créditos" y "tarjetas de crédito" debido a la falta de claridad entre tipos de servicios; se requiere confirmar si debería homologarse en un único servicio "créditos".
+* Se supone que solo deberian considerarse 3 estados principales (aprobado, pendiente y rechazado), omitiendo cualquier otro estado intermedio
 
 ## Manejo de errores
 
@@ -131,13 +134,13 @@ Esto permite mantener una estructura consistente en la base de datos.
 
 ## Mejoras futuras
 
+* Integrar validación de registros duplicados
+* Mostrar cantidad de registros para validar que las sincronizaciones se ejecuten de manera correcta
 * Añadir autenticación de usuarios
 * Agregar paginación en tablas
-* Integrar validaciones avanzadas
 * Mejorar la UI/UX
 * Agregar pantalla de carga
 * Implementar filtros por tipo de servicio
 * Añadir tests unitarios
 * Agregar validación de health check para el mock
-* Manejo más robusto de errores
 * Dockerización del proyecto
