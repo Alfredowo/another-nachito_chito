@@ -45,7 +45,7 @@ export default function Home() {
 
       <div className="flex-1 flex flex-col overflow-hidden">
         <div className="sticky top-0 z-10 bg-white flex items-center gap-4 border-b border-slate-200 px-6 py-5 shadow-sm">
-          <h1 className="text-2xl font-bold text-slate-800">Nachito Chito</h1>
+          <h1 className="text-2xl font-bold text-slate-800">Administrador de procesos financieros Nachito Chito</h1>
           <button
             onClick={handleSync}
             disabled={loading}

@@ -30,7 +30,7 @@ function saveRecords(records) {
 }
 
 function getRecords() {
-  return db.prepare('SELECT * FROM records').all();
+  return db.prepare('SELECT * FROM records ORDER BY id DESC').all();
 }
 
 export { saveRecords, getRecords };

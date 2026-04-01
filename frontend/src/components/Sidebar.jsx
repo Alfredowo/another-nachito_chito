@@ -1,6 +1,6 @@
 const tabs = [
-  { key: "records", label: "Records" },
-  { key: "logs", label: "Logs" },
+  { key: "records", label: "Registros" },
+  { key: "logs", label: "Bitácora" },
 ];
 
 export default function Sidebar({ activeTab, onTabChange }) {

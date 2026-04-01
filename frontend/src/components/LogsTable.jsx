@@ -2,7 +2,7 @@ export default function LogsTable({ logs }) {
   return (
     <div>
       <h2 className="text-xl px-6 py-4 font-bold text-slate-800">
-        Logs
+        Bitácora de ejecuciones
       </h2>
       <div className="px-6 overflow-y-auto max-h-[80vh]">
         <table className="w-full">

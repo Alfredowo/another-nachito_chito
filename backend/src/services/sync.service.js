@@ -58,7 +58,7 @@ async function runSync() {
       status: 'success',
       duration,
       records_count: processed.length,
-      message: 'Sincroniazción completada exutosamente'
+      message: 'Sincronización completada exutosamente'
     });
 
     return { success: true };

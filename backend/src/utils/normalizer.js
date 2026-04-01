@@ -11,7 +11,7 @@ function normalizeNumber(value) {
 function normalizeStatus(status) {
   if (!status) return 'unknown';
 
-  console.log('Servicio:', status);
+  // console.log('Servicio:', status);
 
   const s = status.toLowerCase().trim();
 
@@ -25,7 +25,7 @@ function normalizeStatus(status) {
 function classifyService(service) {
   if (!service) return 'otros';
 
-  console.log('Servicio:', service);
+  // console.log('Servicio:', service);
 
   const s = service.toLowerCase().trim();
 

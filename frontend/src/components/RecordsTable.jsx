@@ -26,7 +26,7 @@ export default function RecordsTable({ records }) {
                 <td className="px-4 py-2 border border-slate-100 text-slate-700">{record.email ?? '-'}</td>
                 <td className="px-4 py-2 border border-slate-100 text-slate-700">{record.phone ?? '-'}</td>
                 <td className="px-4 py-2 border border-slate-100 text-slate-700">{record.service_type ?? '-'}</td>
-                <td className="px-4 py-2 border border-slate-100 text-slate-700">{record.requested_amount ?? '-'}</td>
+                <td className="px-4 py-2 border border-slate-100 text-slate-700">{record.requested_amount != null ? `$${record.requested_amount}` : '-'}</td>
                 <td className={`px-4 py-2 border border-slate-100 font-semibold ${record.status === 'aprobado' ? 'text-emerald-600' : record.status === 'rechazado' ? 'text-rose-600' : 'text-amber-500'}`}>
                   {record.status ?? '-'}
                 </td>
