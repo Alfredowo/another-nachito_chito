@@ -39,15 +39,17 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
-      <h1>Nachito Chito Sync</h1>
+    <div className="container mx-auto">
+      <div className="sticky top-0 z-10 bg-white flex items-center gap-4 border-gray-200 py-8 px-6">
+        <h1 className="text-2xl font-bold">Nachito Chito</h1>
+        <SyncButton onSync={handleSync} loading={loading} />
+      </div>
 
-      <SyncButton onSync={handleSync} loading={loading} />
-      <br /><br />
+      <div className="">
+        <LogsTable logs={logs} />
 
-      <LogsTable logs={logs} />
-
-      <RecordsTable records={records} />
+        <RecordsTable records={records} />
+      </div>
     </div>
   );
 }
