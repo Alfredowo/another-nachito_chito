@@ -3,7 +3,8 @@ import {
   normalizeString,
   normalizeNumber,
   normalizeStatus,
-  classifyService
+  classifyService,
+  normalizePhone
 } from '../utils/normalizer.js';
 
 import { saveLog } from '../repositories/logs.js';
@@ -39,7 +40,7 @@ async function runSync() {
       application_id: normalizeString(item.applicationId),
       name: normalizeString(item.fullName),
       email: normalizeString(item.email),
-      phone: normalizeString(item.phone),
+      phone: normalizePhone(item.phone),
       service_type: classifyService(item.interestedService),
       requested_amount: normalizeNumber(item.requestedAmount),
       status: normalizeStatus(item.status),

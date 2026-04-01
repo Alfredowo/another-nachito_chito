@@ -5,7 +5,7 @@ const tabs = [
 
 export default function Sidebar({ activeTab, onTabChange }) {
   return (
-    <aside className="w-48 shrink-0 bg-slate-200 border-r border-slate-300 flex flex-col gap-1 p-4 pt-8">
+    <aside className="w-48 shrink-0 bg-slate-200 border-r border-slate-300 flex flex-col gap-1 p-4 pt-10">
       <h2 className="text-xs font-semibold text-slate-800 uppercase tracking-wider mb-3 px-2">Vistas</h2>
       {tabs.map(({ key, label }) => (
         <button

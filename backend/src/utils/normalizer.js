@@ -10,7 +10,16 @@ function normalizeNumber(value) {
 
 function normalizeStatus(status) {
   if (!status) return 'unknown';
-  return status.trim().toLowerCase();
+
+  console.log('Servicio:', status);
+
+  const s = status.toLowerCase().trim();
+
+  if (s.includes('pending_review') || s.includes('in_review') || s.includes('pending')) return 'pendiente';
+  if (s.includes('approved')) return 'aprobado';
+  if (s.includes('rejected')) return 'rechazado';
+
+  return 'status desconocido';
 }
 
 function classifyService(service) {
@@ -28,4 +37,11 @@ function classifyService(service) {
   return 'otros';
 }
 
-export { normalizeString, normalizeNumber, normalizeStatus, classifyService };
+function normalizePhone(value) {
+  if (!value) return null;
+  const phoneNumber = value.replace(/\D/g, '');
+  if (phoneNumber.length !== 10) return null;
+  return `+${phoneNumber}`;
+}
+
+export { normalizeString, normalizeNumber, normalizeStatus, classifyService, normalizePhone };
