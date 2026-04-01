@@ -54,13 +54,13 @@ Se configuraron las siguientes variables de entorno para configuraciones y datos
 
 ### En el backend
 
-PORT: define el puerto de ejecución del backend (por defecto es 3000)
-MOCK_API_URL: url base del servicio mock (sin incluir endpoint /mock/sync)
-MOCK_API_TOKEN: token de acceso para el servicio mock (sin el "Bearer")
+* PORT: define el puerto de ejecución del backend (por defecto es 3000)
+* MOCK_API_URL: url base del servicio mock (sin incluir endpoint /mock/sync)
+* MOCK_API_TOKEN: token de acceso para el servicio mock (sin el "Bearer")
 
 ### En el frontend
 
-VITE_API_URL: Ruta del backend (por defecto es http://localhost:3000)
+* VITE_API_URL: Ruta del backend (por defecto es http://localhost:3000)
 
 ## Uso de la aplicación
 
