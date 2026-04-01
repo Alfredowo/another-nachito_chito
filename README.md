@@ -50,7 +50,7 @@ El frontend se ejecuta en: http://localhost:5173
 
 ## Variables de entorno
 
-Se configuraron las siguientes variables de entorno para configuraciones y datos sensibles:
+Se configuraron las siguientes variables de entorno mediante archivos .env en la raiz del backend y frontend para manejo de datos sensibles y de configuración:
 
 ### En el backend
 
@@ -61,6 +61,8 @@ Se configuraron las siguientes variables de entorno para configuraciones y datos
 ### En el frontend
 
 * **VITE_API_URL:** Ruta del backend (por defecto es http://localhost:3000)
+
+Los archivos .env se agregan en el .gitignore para no filtrar datos sensibles en el repositorio
 
 ## Uso de la aplicación
 
