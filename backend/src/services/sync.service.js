@@ -15,6 +15,8 @@ const MOCK_API_TOKEN = process.env.MOCK_API_TOKEN;
 async function runSync() {
   const start = Date.now();
 
+  console.log('Hora de inicio:', start);
+
   try {
     const response = await axios.post(
       `${MOCK_API_URL}/mock/sync`,
@@ -31,6 +33,8 @@ async function runSync() {
 
     const data = response.data.data || [];
 
+    console.log(`Total de datos obtenidos: ${data.length}`);
+
     const processed = data.map(item => ({
       application_id: normalizeString(item.applicationId),
       name: normalizeString(item.fullName),
@@ -46,6 +50,8 @@ async function runSync() {
 
     const duration = Date.now() - start;
 
+    console.log('Duración:', duration, 'ms');
+
     saveLog({
       timestamp: new Date().toISOString(),
       status: 'success',
@@ -59,6 +65,9 @@ async function runSync() {
   } catch (err) {
     const duration = Date.now() - start;
 
+    console.log('Duración:', duration, 'ms');
+    console.error('Error durante la sincronización:', err.message);
+
     saveLog({
       timestamp: new Date().toISOString(),
       status: 'error',
@@ -67,7 +76,7 @@ async function runSync() {
       message: err.message || 'Error durante la sincronización'
     });
 
-    return { success: false };
+    return { success: false, message: err.message };
   }
 }
 

@@ -4,7 +4,15 @@ import { getRecords } from '../repositories/records.js';
 
 async function sync(req, res) {
   const result = await runSync();
-  res.json(result);
+  console.log('Resultado de la sincronización:', result);
+  if (result.success) {
+    return res.status(200).json(result);
+  } else {
+    return res.status(500).json({
+      success: false,
+      message: result.message || "Error en la sincronización"
+    });
+  }
 }
 
 function logs(req, res) {
