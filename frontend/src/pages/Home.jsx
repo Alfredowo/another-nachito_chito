@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SyncButton from "../components/SyncButton";
+import Sidebar from "../components/Sidebar";
 import LogsTable from "../components/LogsTable";
 import RecordsTable from "../components/RecordsTable";
 import { runSync, getLogs, getRecords } from "../services/api";
@@ -8,6 +9,7 @@ export default function Home() {
   const [logs, setLogs] = useState([]);
   const [records, setRecords] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState("logs");
 
   const loadData = async () => {
     const logsResponse = await getLogs();
@@ -39,16 +41,23 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="container mx-auto">
-      <div className="sticky top-0 z-10 bg-white flex items-center gap-4 border-gray-200 py-8 px-6">
-        <h1 className="text-2xl font-bold">Nachito Chito</h1>
-        <SyncButton onSync={handleSync} loading={loading} />
-      </div>
+    <div className="flex h-screen">
+      <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
 
-      <div className="">
-        <LogsTable logs={logs} />
+      {/* Main content */}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="sticky top-0 z-10 bg-white flex items-center gap-4 border-b border-slate-200 py-4 px-6 shadow-sm">
+          <h1 className="text-2xl font-bold text-slate-800">Nachito Chito</h1>
+          <SyncButton onSync={handleSync} loading={loading} />
+        </div>
 
-        <RecordsTable records={records} />
+        <div className="">
+          {activeTab === "logs" ? (
+            <LogsTable logs={logs} />
+          ) : (
+            <RecordsTable records={records} />
+          )}
+        </div>
       </div>
     </div>
   );

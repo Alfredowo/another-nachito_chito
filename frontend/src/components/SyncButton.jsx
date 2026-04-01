@@ -3,8 +3,8 @@ export default function SyncButton({ onSync, loading }) {
     <button
       onClick={onSync}
       disabled={loading}
-      className={`px-6 py-2 rounded-md font-semibold text-white cursor-pointer transition
-        ${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}
+      className={`px-6 py-2 rounded-md font-semibold text-white cursor-pointer transition shadow-sm
+        ${loading ? 'bg-slate-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800'}`}
     >
       {loading ? "Sincronizando..." : "Sincronizar"}
     </button>

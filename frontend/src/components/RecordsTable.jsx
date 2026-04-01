@@ -1,36 +1,41 @@
 export default function RecordsTable({ records }) {
   return (
-    <div className="overflow-x-auto mt-6">
-      <table className="min-w-full border border-gray-200 rounded-lg overflow-hidden border-collapse">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="px-4 py-2 text-left text-sm font-medium text-gray-700 border border-gray-200">ID</th>
-            <th className="px-4 py-2 text-left text-sm font-medium text-gray-700 border border-gray-200">Nombre</th>
-            <th className="px-4 py-2 text-left text-sm font-medium text-gray-700 border border-gray-200">Email</th>
-            <th className="px-4 py-2 text-left text-sm font-medium text-gray-700 border border-gray-200">Teléfono</th>
-            <th className="px-4 py-2 text-left text-sm font-medium text-gray-700 border border-gray-200">Servicio</th>
-            <th className="px-4 py-2 text-left text-sm font-medium text-gray-700 border border-gray-200">Monto</th>
-            <th className="px-4 py-2 text-left text-sm font-medium text-gray-700 border border-gray-200">Status</th>
-            <th className="px-4 py-2 text-left text-sm font-medium text-gray-700 border border-gray-200">Fecha</th>
-          </tr>
-        </thead>
-        <tbody>
-          {records.map(record => (
-            <tr key={record.id} className="border-t border-gray-200 hover:bg-gray-50">
-              <td className="px-4 py-2 border border-gray-200">{record.application_id}</td>
-              <td className="px-4 py-2 border border-gray-200">{record.name ?? '-'}</td>
-              <td className="px-4 py-2 border border-gray-200">{record.email ?? '-'}</td>
-              <td className="px-4 py-2 border border-gray-200">{record.phone ?? '-'}</td>
-              <td className="px-4 py-2 border border-gray-200">{record.service_type ?? '-'}</td>
-              <td className="px-4 py-2 border border-gray-200">{record.requested_amount ?? '-'}</td>
-              <td className={`px-4 py-2 border border-gray-200 font-semibold ${record.status === 'approved' ? 'text-green-600' : 'text-red-600'}`}>
-                {record.status ?? '-'}
-              </td>
-              <td className="px-4 py-2 border border-gray-200">{new Date(record.created_at).toLocaleString()}</td>
+    <div>
+      <h2 className="text-xl px-6 py-3 font-bold text-slate-800">
+        Registros
+      </h2>
+      <div className="px-6 overflow-y-auto max-h-[90vh]">
+        <table className="w-full">
+          <thead className="bg-indigo-50 sticky top-0 z-10">
+            <tr>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-indigo-700 border border-indigo-100">ID</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-indigo-700 border border-indigo-100">Nombre</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-indigo-700 border border-indigo-100">Email</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-indigo-700 border border-indigo-100">Teléfono</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-indigo-700 border border-indigo-100">Servicio</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-indigo-700 border border-indigo-100">Monto</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-indigo-700 border border-indigo-100">Status</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-indigo-700 border border-indigo-100">Fecha</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {records.map(record => (
+              <tr key={record.id} className="border-t border-slate-100 hover:bg-indigo-50 transition-colors">
+                <td className="px-4 py-2 border border-slate-100 text-slate-700">{record.application_id}</td>
+                <td className="px-4 py-2 border border-slate-100 text-slate-700">{record.name ?? '-'}</td>
+                <td className="px-4 py-2 border border-slate-100 text-slate-700">{record.email ?? '-'}</td>
+                <td className="px-4 py-2 border border-slate-100 text-slate-700">{record.phone ?? '-'}</td>
+                <td className="px-4 py-2 border border-slate-100 text-slate-700">{record.service_type ?? '-'}</td>
+                <td className="px-4 py-2 border border-slate-100 text-slate-700">{record.requested_amount ?? '-'}</td>
+                <td className={`px-4 py-2 border border-slate-100 font-semibold ${record.status === 'approved' ? 'text-emerald-600' : record.status === 'rejected' ? 'text-rose-600' : 'text-amber-500'}`}>
+                  {record.status ?? '-'}
+                </td>
+                <td className="px-4 py-2 border border-slate-100 text-slate-500">{new Date(record.created_at).toLocaleString()}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
