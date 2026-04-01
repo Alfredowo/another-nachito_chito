@@ -13,7 +13,7 @@ export default function Sidebar({ activeTab, onTabChange }) {
           onClick={() => onTabChange(key)}
           className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium cursor-pointer
             ${activeTab === key
-              ? "bg-indigo-600 text-white shadow-sm"
+              ? "bg-indigo-500 text-white shadow-sm"
               : "text-slate-500 hover:bg-slate-200 hover:text-slate-800"}`}
         >
           {label}
