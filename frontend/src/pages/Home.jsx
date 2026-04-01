@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SyncButton from "../components/syncButton";
+import SyncButton from "../components/SyncButton";
 import LogsTable from "../components/LogsTable";
 import RecordsTable from "../components/RecordsTable";
 import { runSync, getLogs, getRecords } from "../services/api";
