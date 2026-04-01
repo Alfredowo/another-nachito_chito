@@ -19,10 +19,15 @@ export default function Home() {
 
   const handleSync = async () => {
     setLoading(true);
-    await runSync();
-    console.log("Sincronización ejecutada");
-    await loadData();
-    setLoading(false);
+    try {
+      await runSync();
+      console.log("Sincronización ejecutada");
+      await loadData();
+    } catch (error) {
+      console.error("Error durante la sincronización:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
